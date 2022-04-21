@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46342E986D61847D94A2DD45 /* Pods_ZSCarouselView_Objc_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7D9B089610CC5CE60D49F3 /* Pods_ZSCarouselView_Objc_Tests.framework */; };
+		4E630AC328100F8F00C76C12 /* ZSScrollCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E630AC228100F8F00C76C12 /* ZSScrollCarouselViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F956DA3DD2AB5EACF1AECC5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1F956DA3DD2AB5EACF1AECC5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4E630AC128100F8F00C76C12 /* ZSScrollCarouselViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSScrollCarouselViewController.h; sourceTree = "<group>"; };
+		4E630AC228100F8F00C76C12 /* ZSScrollCarouselViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSScrollCarouselViewController.m; sourceTree = "<group>"; };
 		5758E6A092FAF02E06E95794 /* Pods-ZSCarouselView-Objc_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSCarouselView-Objc_Example.release.xcconfig"; path = "Target Support Files/Pods-ZSCarouselView-Objc_Example/Pods-ZSCarouselView-Objc_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ZSCarouselView-Objc_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZSCarouselView-Objc_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,10 +66,10 @@
 		750E6F2440F7771586F4DD0E /* Pods-ZSCarouselView-Objc_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSCarouselView-Objc_Tests.release.xcconfig"; path = "Target Support Files/Pods-ZSCarouselView-Objc_Tests/Pods-ZSCarouselView-Objc_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F05B9ED51B8ACA689382E02 /* Pods_ZSCarouselView_Objc_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZSCarouselView_Objc_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9F82D2838E81565D4C0CA6B /* ZSCarouselView-Objc.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "ZSCarouselView-Objc.podspec"; path = "../ZSCarouselView-Objc.podspec"; sourceTree = "<group>"; };
+		A9F82D2838E81565D4C0CA6B /* ZSCarouselView-Objc.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "ZSCarouselView-Objc.podspec"; path = "../ZSCarouselView-Objc.podspec"; sourceTree = "<group>"; };
 		BD9E1A38E36422B07D6B933F /* Pods-ZSCarouselView-Objc_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZSCarouselView-Objc_Example.debug.xcconfig"; path = "Target Support Files/Pods-ZSCarouselView-Objc_Example/Pods-ZSCarouselView-Objc_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DA7D9B089610CC5CE60D49F3 /* Pods_ZSCarouselView_Objc_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZSCarouselView_Objc_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF21644F40F654E17468ACD6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FF21644F40F654E17468ACD6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				4E630AC128100F8F00C76C12 /* ZSScrollCarouselViewController.h */,
+				4E630AC228100F8F00C76C12 /* ZSScrollCarouselViewController.m */,
 			);
 			name = "Example for ZSCarouselView-Objc";
 			path = "ZSCarouselView-Objc";
@@ -193,7 +198,6 @@
 				6800C6E4A7D973BDD47BAC60 /* Pods-ZSCarouselView-Objc_Tests.debug.xcconfig */,
 				750E6F2440F7771586F4DD0E /* Pods-ZSCarouselView-Objc_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +262,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -346,11 +351,15 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZSCarouselView-Objc_Example/Pods-ZSCarouselView-Objc_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ZSCarouselView-Objc/ZSCarouselView_Objc.framework",
+				"${BUILT_PRODUCTS_DIR}/ZSViewUtil-Objc/ZSViewUtil_Objc.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZSCarouselView_Objc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZSViewUtil_Objc.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -364,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E630AC328100F8F00C76C12 /* ZSScrollCarouselViewController.m in Sources */,
 				6003F59E195388D20070C39A /* ZSAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ZSViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

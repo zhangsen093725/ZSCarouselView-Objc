@@ -1,0 +1,6 @@
+framework module ZSViewUtil_Objc {
+  umbrella header "ZSViewUtil-Objc-umbrella.h"
+
+  export *
+  module * { export * }
+}

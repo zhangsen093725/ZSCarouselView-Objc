@@ -1,0 +1,22 @@
+{
+  "name": "ZSCarouselView-Objc",
+  "version": "0.1.0",
+  "summary": "A short description of ZSCarouselView-Objc.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Josh/ZSCarouselView-Objc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Josh": "376019018@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/Josh/ZSCarouselView-Objc.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ZSCarouselView-Objc/Classes/**/*"
+}
