@@ -1,9 +1,9 @@
 {
   "name": "ZSCarouselView-Objc",
   "version": "0.1.0",
-  "summary": "A short description of ZSCarouselView-Objc.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Josh/ZSCarouselView-Objc",
+  "summary": "无限轮播",
+  "description": "1. 跑马灯，cube 动画，可自定义 cube view\n2. 循环轮播，复用 Cell\n3. 可自定义Cell，水平、垂直滚动\n4. 可自定义FlowLayout",
+  "homepage": "https://github.com/zhangsen093725/ZSCarouselView-Objc",
   "license": {
     "type": "MIT",
     "file": "LICENSE"

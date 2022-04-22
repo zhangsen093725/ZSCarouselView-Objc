@@ -116,23 +116,25 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ZSScrollCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self.cellClass zs_identifier] forIndexPath:indexPath];
+    UICollectionViewCell *cell = [super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
-    BOOL isHorizontal = self.collectionViewLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal;
-    
-    if (isHorizontal)
+    if ([cell isKindOfClass:[ZSScrollCarouselCell class]])
     {
-        cell.minimumInteritemSpacing = _minimumSpacing;
-        cell.minimumLineSpacing = 0;
+        ZSScrollCarouselCell *__cell = (ZSScrollCarouselCell *)cell;
+        
+        BOOL isHorizontal = self.collectionViewLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal;
+        
+        if (isHorizontal)
+        {
+            __cell.minimumInteritemSpacing = _minimumSpacing;
+            __cell.minimumLineSpacing = 0;
+        }
+        else
+        {
+            __cell.minimumInteritemSpacing = 0;
+            __cell.minimumLineSpacing = _minimumSpacing;
+        }
     }
-    else
-    {
-        cell.minimumInteritemSpacing = 0;
-        cell.minimumLineSpacing = _minimumSpacing;
-    }
-    
-    [self.dataSource zs_configCarouseCell:cell itemAtIndex:[self scrollCarouseIndexFromPage:indexPath.item]];
-    
     return cell;
 }
 

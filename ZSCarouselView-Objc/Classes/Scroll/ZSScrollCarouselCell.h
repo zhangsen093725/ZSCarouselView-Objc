@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZSScrollCarouselCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat minimumLineSpacing;
 @property (nonatomic, assign) CGFloat minimumInteritemSpacing;
 

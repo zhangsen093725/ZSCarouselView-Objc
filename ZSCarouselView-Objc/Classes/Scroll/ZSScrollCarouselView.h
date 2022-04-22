@@ -17,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param carouseView carouseView
 - (NSInteger)zs_numberOfItemcarouseView:(ZSScrollCarouselView *)carouseView;
 
-/// 滚动到的视图
-/// @param cell 当前的carouseCell
+/// 自定义Cell
+/// @param carouseView carouseView
 /// @param index 当前的index
-- (void)zs_configCarouseCell:(ZSScrollCarouselCell *)cell itemAtIndex:(NSInteger)index;
+- (NSString *)zs_carouseView:(ZSScrollCarouselView *)carouseView dequeueReusableCellWithReuseIdentifierAtIndex:(NSInteger)index;
 
 @end
 
@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param carouseView carouseView
 /// @param index 当前的index
 - (void)zs_carouseViewDidScroll:(ZSScrollCarouselView *)carouseView index:(NSInteger)index;
+
+/// 配置滚动到的视图属性
+/// @param cell 当前的carouseCell
+/// @param index 当前的index
+- (void)zs_configCarouseCell:(UICollectionViewCell *)cell itemAtIndex:(NSInteger)index;
 
 @end
 
@@ -58,6 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UICollectionViewFlowLayout *collectionViewLayout;
 @property (nonatomic, assign) Class cellClass;
 @property (nonatomic, assign) NSInteger cachePage;
+@property (nonatomic, assign) UIEdgeInsets contentInset;
 
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
 @property (nonatomic, assign, readonly) NSInteger itemCount;
@@ -67,6 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadData;
 - (void)scrollToPage:(NSInteger)page animated:(BOOL)animated;
 - (NSInteger)scrollCarouseIndexFromPage:(NSInteger)page;
+
+- (void)registerClass:(nullable Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier;
+- (void)registerNib:(nullable UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier;
 
 @end
 

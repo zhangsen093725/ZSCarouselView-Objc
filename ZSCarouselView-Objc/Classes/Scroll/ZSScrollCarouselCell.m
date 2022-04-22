@@ -7,12 +7,6 @@
 
 #import "ZSScrollCarouselCell.h"
 
-@interface ZSScrollCarouselCell ()
-
-@property (nonatomic, strong) UIImageView *imageView;
-
-@end
-
 @implementation ZSScrollCarouselCell
 
 + (NSString *)zs_identifier {

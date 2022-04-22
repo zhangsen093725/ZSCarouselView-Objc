@@ -35,13 +35,14 @@
     
     if (self = [super initWithFrame:frame])
     {
-        _autoScroll = YES;
-        _interval = 3;
-        _loopScroll = YES;
-        _cachePage = 1;
-        _cellClass = [ZSScrollCarouselCell class];
-        _collectionViewLayout = [UICollectionViewFlowLayout new];
-        [self beginAutoScroll];
+        self.cachePage = 1;
+        self.interval = 3;
+        
+        self.autoScroll = YES;
+        self.loopScroll = YES;
+        
+        self.cellClass = [ZSScrollCarouselCell class];
+        self.collectionViewLayout = [UICollectionViewFlowLayout new];
     }
     return self;
 }
@@ -77,15 +78,25 @@
     }
 }
 
+- (void)registerClass:(nullable Class)cellClass forCellWithReuseIdentifier:(NSString *)identifier {
+ 
+    [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:identifier];
+}
+
+- (void)registerNib:(nullable UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier {
+    
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:identifier];
+}
+
 - (void)configCollectionView:(UICollectionView *)collectionView {
     
     collectionView.pagingEnabled = YES;
-    [collectionView registerClass:_cellClass forCellWithReuseIdentifier:[_cellClass zs_identifier]];
+    [self registerClass:_cellClass forCellWithReuseIdentifier:[_cellClass zs_identifier]];
 }
 
 - (void)reloadData {
     
-    [self.collectionView reloadData];
+    [_collectionView reloadData];
 }
 
 - (void)scrollToPage:(NSInteger)page animated:(BOOL)animated {
@@ -191,9 +202,16 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    ZSScrollCarouselCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[_cellClass zs_identifier] forIndexPath:indexPath];
+    NSString *reuseIdentifier = [self.dataSource zs_carouseView:self dequeueReusableCellWithReuseIdentifierAtIndex:[self scrollCarouseIndexFromPage:indexPath.item]];
     
-    [self.dataSource zs_configCarouseCell:cell itemAtIndex:[self scrollCarouseIndexFromPage:indexPath.item]];
+    if (reuseIdentifier.length <= 0)
+    {
+        reuseIdentifier = [_cellClass zs_identifier];
+    }
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    [self.delegate zs_configCarouseCell:cell itemAtIndex:[self scrollCarouseIndexFromPage:indexPath.item]];
     
     return cell;
 }
@@ -228,6 +246,19 @@
 - (void)setLoopScroll:(BOOL)loopScroll {
     
     _loopScroll = loopScroll;
+    [self reloadData];
+}
+
+- (void)setAutoScroll:(BOOL)autoScroll {
+    
+    _autoScroll = autoScroll;
+    autoScroll ? [self beginAutoScroll] : [self endAutoScroll];
+}
+
+- (void)setContentInset:(UIEdgeInsets)contentInset {
+    
+    _contentInset = contentInset;
+    self.collectionView.contentInset = contentInset;
     [self reloadData];
 }
 
